@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Angular Assignment</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body ng-app="myApp">
+	<div class="container">	
+		<div class="row header">
+			<div class="col-md-2 col-md-offset-10" style="margin-top:5px;">
+				<a class="btn btn-default btn-success" ui-sref="bookDetails">Book Details</a>
+			</div>
+		</div>
+		<div class="row">
+			<!--div class="col-md-2 leftNav">
+				<br/>
+				<a class="btn btn-default btn-block" ui-sref="bookDetails">Book Details</a>
+			</div-->	
+			<div class="col-md-12 tableData">
+				<div ui-view></div>
+			</div>	
+		</div>
+	</div>
 	
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/angular-ui-router.min.js"></script>
+
+	<script src="js/app.js"></script>
+
+	<script src="js/controller/getUserController.js"></script>
+	<script src="js/controller/createNewUserCtrl.js"></script>
+
+	<script src="js/service/getBookDetailsService.js"></script>
+	<script src="js/service/createNewBookService.js"></script>
+
+	<script src="js/router/route.js"></script>
 </body>
 </html>
