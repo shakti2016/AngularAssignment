@@ -1,19 +1,3 @@
-/*app.controller("getBookListController",function(getBookDetails){
-	var self = this;
-	self.updatedbook = {};
-    getBookDetails
-    .getData("https://api.mongolab.com/api/1/databases/ng-class/collections/BookStore?apiKey=5tpXTgKFQVVYpZ3-d6uQ5xcZ9x4hIF_N")
-    .then(function(responce) {
-          self.bookData = responce;
-    });
-
-
-		self.updateFormData = function(){
-			console.log("Update Form Data Called...");
-			//updateBookDetails.updateData(self.book);
-		}
-
-});*/
 (function(){
 
 	'use strict';
