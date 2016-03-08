@@ -1,5 +1,5 @@
 app.config(function($stateProvider, $urlRouterProvider){
-    
+
     $urlRouterProvider.otherwise('/bookDetails');               //default view described here
 
     $stateProvider

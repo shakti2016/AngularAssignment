@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="myApp">
-	<div class="container">	
+	<div class="container">
 		<div class="row header">
 			<div class="col-md-2 col-md-offset-10" style="margin-top:5px;">
 				<a class="btn btn-default btn-success" ui-sref="bookDetails">Book Details</a>
@@ -16,13 +16,13 @@
 			<!--div class="col-md-2 leftNav">
 				<br/>
 				<a class="btn btn-default btn-block" ui-sref="bookDetails">Book Details</a>
-			</div-->	
+			</div-->
 			<div class="col-md-12 tableData">
 				<div ui-view></div>
-			</div>	
+			</div>
 		</div>
 	</div>
-	
+
 	<script src="scripts/angular.min.js"></script>
 	<script src="scripts/angular-ui-router.min.js"></script>
 
@@ -33,6 +33,7 @@
 
 	<script src="js/service/getBookDetailsService.js"></script>
 	<script src="js/service/createNewBookService.js"></script>
+	<script src="js/service/updateBookDetails.js"></script>
 
 	<script src="js/router/route.js"></script>
 </body>

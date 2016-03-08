@@ -2,44 +2,53 @@
 		<h2>Book Details</h2>
 		<div class="row">
 			<div class="col-md-5"  style="margin-top:5px;">
-				<span>Seach :</span> 
+				<span>Seach :</span>
 				<input type="text" ng-model="searchQuery"/>
 			</div>
 			<div class="col-md-2 col-md-offset-5" >
 				<a ui-sref="createNewUser" class="btn btn-primary">New Book</a>
 			</div>
-
 		</div>
-		<br>	
+		<br>
 		<div class="table-responsive">
-			<table class="table table-bordered">
-				<tr >
-					<th class="text-center">Name</th>
-					<th class="text-center">Auther</th>
-					<th class="text-center">Description</th>
-					<th class="text-center">Publisher</th>
-					<th class="text-center">Price</th>
-					<th class="text-center" colspan="2">Action</th>
-				</tr>
-				<tr ng-repeat="book in book.bookData | filter : searchQuery | orderBy:id:true">
-					<td>{{book.name}}</td>
-					<td>{{book.auther}}</td>
-					<td>{{book.description}}</td>
-					<td>{{book.publisher}}</td>
-					<td>{{book.price}}</td>
-					<td>
-						<button class="btn btn-success">
-							Edit
-						</button>
-					</td>	
-					<td>
-						<button class="btn btn-danger">
-							Delete
-						</button>
-					</td>	
-					
-				</tr>
-			</table>
+				<table class="table table-bordered">
+						<tr >
+								<th class="text-center"></th>
+								<th class="text-center">Name</th>
+								<th class="text-center">Auther</th>
+								<th class="text-center">Description</th>
+								<th class="text-center">Publisher</th>
+								<th class="text-center">Price</th>
+								<th class="text-center" colspan="2">Action</th>
+						</tr>
+						<tr ng-repeat="books in book.bookData | filter : searchQuery | orderBy:id:true">
+
+								<td><input type="checkbox" /></td>
+								<td>
+										<span ng-hide="editMode">{{books.name}}</span>
+										<input type="text" ng-show="editMode" ng-model="books.name" />
+								</td>
+								<td>
+										<span ng-hide="editMode"> {{books.auther}}</span>
+										<input type="text" ng-show="editMode" ng-model="books.auther" />
+								</td>
+								<td>
+										<span ng-hide="editMode">{{books.description}}</span>
+										<input type="text" ng-show="editMode" ng-model="books.description" />
+								</td>
+								<td>
+										<span ng-hide="editMode"> {{books.publisher}}</span>
+										<input type="text" ng-show="editMode" ng-model="books.publisher" />
+								</td>
+								<td>
+										<span ng-hide="editMode"> {{books.price}}</span>
+										<input type="text" ng-show="editMode" ng-model="books.price" />
+								</td>
+								<td>
+										<button class="btn btn-success" type="button" ng-hide="editMode" ng-click="editMode = true;">Edit</button>
+										<button class="btn btn-success" type="button" ng-show="editMode" ng-click="editMode = false;book.updateFormData(books);">Save</button>
+								</td>
+						</tr>
+				</table>
 		</div>
 	</div>
-	
