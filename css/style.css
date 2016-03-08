@@ -1,4 +1,4 @@
-	
+
 .header{
  	min-height: 60px;
  	background: #808080;
@@ -8,8 +8,8 @@
 .leftNav{
 	background: #808080;
 	border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
 	min-height: 660px;
 }
  .homeClass{

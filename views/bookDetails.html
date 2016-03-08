@@ -5,8 +5,9 @@
 				<span>Seach :</span>
 				<input type="text" ng-model="searchQuery"/>
 			</div>
-			<div class="col-md-2 col-md-offset-5" >
-				<a ui-sref="createNewUser" class="btn btn-primary">New Book</a>
+			<div class="col-md-3 col-md-offset-4" >
+				<button class="btn btn-danger" type="button" ng-click="book.deleteRecord(bookMaster);">Delete</button>
+				<a ui-sref="createNewUser" class="btn btn-primary">Add New</a>
 			</div>
 		</div>
 		<br>
@@ -23,7 +24,7 @@
 						</tr>
 						<tr ng-repeat="books in book.bookData | filter : searchQuery | orderBy:id:true">
 
-								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" ng-model="isTrue" ng-checked="bookMaster" ng-change="book.getIndex(books._id.$oid,isTrue )" /></td>
 								<td>
 										<span ng-hide="editMode">{{books.name}}</span>
 										<input type="text" ng-show="editMode" ng-model="books.name" />

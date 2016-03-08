@@ -1,7 +1,5 @@
 app.service("updateBookDetails",function($http,$q){
 
-  console.log("updateBookDetails Called...***");
-
   this.updateData= function(books){
       var defer = $q.defer();
       var url = "https://api.mongolab.com/api/1/databases/ng-class/collections/BookStore/";
