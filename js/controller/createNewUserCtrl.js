@@ -1,9 +1,21 @@
-app.controller("newUserController",function($state, $http, newBookService){
+app.controller("newUserController",function($state, $http, newBookService, getBookDetails){
 	var self = this;
-	var url = "https://api.mongolab.com/api/1/databases/ng-class/collections/BookStore?apiKey=5tpXTgKFQVVYpZ3-d6uQ5xcZ9x4hIF_N";
 	self.book = {};
+	self.data=getBookDetails.getData();
+
 	self.submitFormData = function(){
-		newBookService.newBookDetails(url, self.book);
+		self.buttonDisabled = true;
+		for(var i=0;i<self.data.$$state.value.length;i++){
+			if(self.data.$$state.value[i].name == self.book.name) {
+					self.myFlag = false;
+					break;
+			}else{self.myFlag = true;}
+		}
+		if(self.myFlag){
+				newBookService.newBookDetails(self.book).then(function(){
+					self.buttonDisabled = false;
+					$state.go('bookDetails');
+				});
+		}else{alert("The book name is allready exists...");}
 	}
-	
 });

@@ -10,16 +10,16 @@
 
 		function getBookListController(getBookDetails, updateBookDetails, deleteBookDetails){
 				var self = this;
+				self.loading = true;
 				updateService = updateBookDetails;
 				deleteService = deleteBookDetails;
 
-				getBookDetails
-				.getData("https://api.mongolab.com/api/1/databases/ng-class/collections/BookStore?apiKey=5tpXTgKFQVVYpZ3-d6uQ5xcZ9x4hIF_N")
+				getBookDetails.getData()
 				.then(function(responce) {
 							self.bookData = responce;
+							self.loading = false;
 				});
 		}
-
 		getBookListController.prototype.updateFormData = function(book){
 				self.books = {};
 				self.books._id={};

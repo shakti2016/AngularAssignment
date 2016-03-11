@@ -11,6 +11,12 @@
 			</div>
 		</div>
 		<br>
+		<div class="spinner" ng-show="book.loading">
+			<img class="ajax-loader"
+					 width="100"
+					 height="100"
+					 src="images/spinner.gif" />
+		</div>
 		<div class="table-responsive">
 				<table class="table table-bordered">
 						<tr >
@@ -22,7 +28,7 @@
 								<th class="text-center">Price</th>
 								<th class="text-center" colspan="2">Action</th>
 						</tr>
-						<tr ng-repeat="books in book.bookData | filter : searchQuery | orderBy:id:true">
+						<tr ng-repeat="books in book.bookData | filter : searchQuery | orderBy:name:true">
 
 								<td><input type="checkbox" ng-model="isTrue" ng-checked="bookMaster" ng-change="book.getIndex(books._id.$oid,isTrue )" /></td>
 								<td>

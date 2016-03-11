@@ -26,3 +26,4 @@
  .tableData table{background: #fff;}
  .innerWrap{padding-bottom:20px;}
  .rightAlign{margin-right: 0px;}
+ .spinner{display: inline-block;position: absolute;margin-left: -100px;left: 50%;margin-top: -100px;top: 70%;}
