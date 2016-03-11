@@ -41,9 +41,8 @@
               arr.splice(index, 1);
           }
     };
-		getBookListController.prototype.deleteRecord = function(){
+		getBookListController.prototype.deleteRecord = function(event){
 				if(arr.length<=0){
-					console.log("please select atleast one record...")
 				}else {
 					deleteService.deleteData(arr);
 				}

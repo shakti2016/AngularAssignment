@@ -1,15 +1,15 @@
 <div class="innerWrap">
 		<h2>Book Details</h2>
 		<div class="row">
-			<div class="col-md-5"  style="margin-top:5px;">
-				<span>Seach :</span>
-				<input type="text" ng-model="searchQuery"/>
-			</div>
-			<div class="col-md-3 col-md-offset-4" >
-				<button class="btn btn-danger" type="button" ng-click="book.deleteRecord(bookMaster);">Delete</button>
-				<a ui-sref="createNewUser" class="btn btn-primary">Add New</a>
-			</div>
-		</div>
+   <div class="col-sm-6" style="margin-top:5px;">
+    <span>Seach :</span>
+    <input type="text" ng-model="searchQuery" class="ng-pristine ng-untouched ng-valid ng-empty">
+   </div>
+   <div class="col-sm-6 text-right">
+    <button class="btn btn-danger" type="button" ng-click="book.deleteRecord(bookMaster);">Delete</button>
+    <a ui-sref="createNewUser" class="btn btn-primary" href="#/createNewUser">Add New</a>
+   </div>
+  </div>
 		<br>
 		<div class="spinner" ng-show="book.loading">
 			<img class="ajax-loader"
@@ -26,14 +26,14 @@
 								<th class="text-center">Description</th>
 								<th class="text-center">Publisher</th>
 								<th class="text-center">Price</th>
-								<th class="text-center" colspan="2">Action</th>
+								<th class="text-center">Action</th>
 						</tr>
 						<tr ng-repeat="books in book.bookData | filter : searchQuery | orderBy:name:true">
 
 								<td><input type="checkbox" ng-model="isTrue" ng-checked="bookMaster" ng-change="book.getIndex(books._id.$oid,isTrue )" /></td>
 								<td>
-										<span ng-hide="editMode">{{books.name}}</span>
-										<input type="text" ng-show="editMode" ng-model="books.name" />
+										<span>{{books.name}}</span>
+										<!--input type="text" ng-show="editMode" ng-model="books.name" /-->
 								</td>
 								<td>
 										<span ng-hide="editMode"> {{books.auther}}</span>
@@ -47,13 +47,13 @@
 										<span ng-hide="editMode"> {{books.publisher}}</span>
 										<input type="text" ng-show="editMode" ng-model="books.publisher" />
 								</td>
-								<td>
-										<span ng-hide="editMode"> {{books.price}}</span>
+								<td class="text-center">
+										<span ng-hide="editMode" class="text-center"> {{books.price}}</span>
 										<input type="text" ng-show="editMode" ng-model="books.price" />
 								</td>
-								<td>
-										<button class="btn btn-success" type="button" ng-hide="editMode" ng-click="editMode = true;">Edit</button>
-										<button class="btn btn-success" type="button" ng-show="editMode" ng-click="editMode = false;book.updateFormData(books);">Save</button>
+								<td class="text-center">
+										<button class="btn btn-success text-center" type="button" ng-hide="editMode" ng-click="editMode = true;">Edit</button>
+										<button class="btn btn-success text-center" type="button" ng-show="editMode" ng-click="editMode = false;book.updateFormData(books);">Save</button>
 								</td>
 						</tr>
 				</table>
