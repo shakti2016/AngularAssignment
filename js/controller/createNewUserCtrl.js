@@ -5,11 +5,15 @@ app.controller("newUserController",function($state, $http, newBookService, getBo
 
 	self.submitFormData = function(){
 		self.buttonDisabled = true;
-		for(var i=0;i<self.data.$$state.value.length;i++){
-			if(self.data.$$state.value[i].name == self.book.name) {
-					self.myFlag = false;
-					break;
-			}else{self.myFlag = true;}
+		if(self.data.$$state.value.length==0){
+			self.myFlag = true;
+		}else{
+				for(var i=0;i<self.data.$$state.value.length;i++){
+					if(self.data.$$state.value[i].name == self.book.name) {
+							self.myFlag = false;
+							break;
+					}else{self.myFlag = true;}
+				}
 		}
 		if(self.myFlag){
 				newBookService.newBookDetails(self.book).then(function(){
