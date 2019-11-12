@@ -20,6 +20,8 @@ app.controller("newUserController",function($state, $http, newBookService, getBo
 					self.buttonDisabled = false;
 					$state.go('bookDetails');
 				});
-		}else{alert("The book name is allready exists...");self.buttonDisabled = false;}
+		}else{
+			alert("The book name is allready exists...");self.buttonDisabled = false;
+		}
 	}
 });
